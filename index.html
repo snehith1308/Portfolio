@@ -12,7 +12,7 @@
             font-family: 'Inter', sans-serif;
         }
         .section {
-            scroll-margin-top: 80px;
+            scroll-margin-top: 80px; /* Adjust based on your fixed header height */
         }
         .skill-badge {
             display: inline-block;
@@ -30,30 +30,18 @@
         }
         /* Animation for the floating logo */
         @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
         /* Animation for the glowing pulse effect */
         @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         .animate-pulse-glow {
             animation: pulse-glow 4s infinite;
@@ -66,13 +54,14 @@
     <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg shadow-black/10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="block">
-                <img src="/Screenshot 2025-07-18 160839.png" alt="S Logo" class="h-8 w-auto">
+                <!-- Using a placeholder for the logo -->
+                <img src="/Screenshot 2025-07-18 160839.png" alt="S Logo" class="h-8 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/111827/ffffff?text=Logo';">
             </a>
             <nav class="hidden md:flex space-x-8 items-center">
                 <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
                 <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
                 <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
-                <a href="https://drive.google.com/file/d/1KtP0SySgPr9MVFSMftAOW2t4Wj_2xkcC/view?usp=sharing" class="text-gray-300 hover:text-white transition-colors duration-300">Resume</a>
+                <a href="https://drive.google.com/file/d/1KtP0SySgPr9MVFSMftAOW2t4Wj_2xkcC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-300">Resume</a>
                 <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
@@ -84,6 +73,7 @@
             <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">About</a>
             <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Skills</a>
             <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="https://drive.google.com/file/d/1KtP0SySgPr9MVFSMftAOW2t4Wj_2xkcC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Resume</a>
             <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Contact</a>
         </div>
     </header>
@@ -92,26 +82,32 @@
 
         <!-- About Me Section -->
         <section id="about" class="section min-h-screen flex items-center pt-24 md:pt-0">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-5">
+            <!-- Grid layout for mobile (1 col) and desktop (2 col) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <!-- Image container: Appears on top on mobile, second on desktop -->
+                <div class="flex justify-center items-center md:order-2">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-900 to-cyan-900 rounded-full p-4 shadow-lg animate-pulse-glow">
+                        <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center animate-float overflow-hidden">
+                           <!-- Using a placeholder for the profile image -->
+                           <img src="/image.png" alt="Snehith Ambewar" class="h-full w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x400/374151/ffffff?text=Profile+Image';">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text container: Appears second on mobile, first on desktop -->
+                <div class="space-y-5 text-center md:text-left md:order-1">
                     <h1 class="text-5xl md:text-6xl font-bold leading-tight text-emerald-400">SNEHITH AMBEWAR</h1>
                     <p class="text-xl font-semibold text-white">Information Technology Student & Web Developer</p>
                     <p class="text-lg text-gray-400">
                         Enthusiastic and highly motivated IT student with a strong background in programming, web development, and database management. Seeking a challenging entry-level position to grow professionally and further develop my technical skills.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/snehith1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github"></i></a>
-                        <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
-                        <!-- Add other social links as needed -->
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="https://github.com/snehith1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="github"></i></a>
+                        <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
-                <div class="hidden md:flex justify-center items-center">
-                     <div class="w-80 h-80 bg-gradient-to-br from-emerald-900 to-cyan-900 rounded-full p-4 shadow-lg animate-pulse-glow">
-                        <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center animate-float overflow-hidden">
-                           <img src="/image.png" alt="Snehith Ambewar" class="h-full w-full object-cover">
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
 
@@ -123,7 +119,7 @@
             </div>
             <div class="space-y-8 max-w-4xl mx-auto">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Languages</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Languages</h3>
                     <div class="flex flex-wrap gap-3 justify-center">
                         <span class="skill-badge">Java</span>
                         <span class="skill-badge">Python</span>
@@ -133,7 +129,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Web Development</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Web Development</h3>
                     <div class="flex flex-wrap gap-3 justify-center">
                         <span class="skill-badge">HTML</span>
                         <span class="skill-badge">CSS</span>
@@ -141,7 +137,7 @@
                     </div>
                 </div>
                  <div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Developer & Other Tools</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Developer & Other Tools</h3>
                     <div class="flex flex-wrap gap-3 justify-center">
                         <span class="skill-badge">VS Code</span>
                         <span class="skill-badge">MS Word</span>
@@ -158,7 +154,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white">My Projects</h2>
                 <p class="text-gray-400 mt-2">Here are some of the projects I've worked on.</p>
             </div>
-            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- Project Card 1 -->
                 <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500">
@@ -171,12 +167,12 @@
                 </div>
 
                 <!-- Project Card 2 -->
-                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500">
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500">
                     <div class="p-6">
                         <span class="text-sm font-medium text-emerald-400">Streamlit, Python, Flask, Pandas, TensorFlow</span>
                         <h3 class="text-xl font-bold mt-2 mb-2 text-white">AI Based Vehicle Recommendation System</h3>
                         <p class="text-gray-400 mb-4">An intelligent web app that suggests the best vehicle (Scooter, Bike, or Car) based on user age and salary using machine learning models.</p>
-                        <a href="https://snehith1308.streamlit.app/" class="font-semibold text-emerald-400 hover:text-emerald-300">View Project <i data-lucide="arrow-right" class="inline-block w-4 h-4"></i></a>
+                        <a href="https://snehith1308.streamlit.app/" target="_blank" rel="noopener noreferrer" class="font-semibold text-emerald-400 hover:text-emerald-300">View Project <i data-lucide="arrow-right" class="inline-block w-4 h-4"></i></a>
                     </div>
                 </div>
                 
@@ -193,10 +189,10 @@
                 Say Hello
             </a>
              <div class="flex justify-center space-x-6 mt-10">
-                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZPCDKCDPWRxhzMghqGwVWHlrxrRrqMmsZFPsWrPDVgmDLbsJRKjdRQmSvlttJCTNmKdfg" class="text-gray-400 hover:text-white"><i data-lucide="mail" class="w-7 h-7"></i></a>
-                <a href="https://github.com/snehith1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-7 h-7"></i></a>
-                <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
-            </div>
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZPCDKCDPWRxhzMghqGwVWHlrxrRrqMmsZFPsWrPDVgmDLbsJRKjdRQmSvlttJCTNmKdfg" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="mail" class="w-7 h-7"></i></a>
+                <a href="https://github.com/snehith1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-7 h-7"></i></a>
+                <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+             </div>
         </section>
 
     </main>
@@ -215,15 +211,19 @@
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
         
         // Close mobile menu when a link is clicked
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                // Add a small delay to allow navigation to start before hiding menu
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 100);
             });
         });
     </script>
