@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snehith Ambewar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section {
+            scroll-margin-top: 80px;
+        }
+        .skill-badge {
+            display: inline-block;
+            background-color: #1f2937; /* gray-800 */
+            color: #6ee7b7; /* emerald-300 */
+            border: 1px solid #34d399; /* emerald-400 */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background-color: #374151; /* gray-700 */
+            transform: translateY(-2px);
+        }
+        /* Animation for the floating logo */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        /* Animation for the glowing pulse effect */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 4s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg shadow-black/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="block">
+                <img src="/Screenshot 2025-07-18 160839.png" alt="S Logo" class="h-8 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                <a href="https://drive.google.com/file/d/1KtP0SySgPr9MVFSMftAOW2t4Wj_2xkcC/view?usp=sharing" class="text-gray-300 hover:text-white transition-colors duration-300">Resume</a>
+                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">About</a>
+            <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- About Me Section -->
+        <section id="about" class="section min-h-screen flex items-center pt-24 md:pt-0">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight text-emerald-400">SNEHITH AMBEWAR</h1>
+                    <p class="text-xl font-semibold text-white">Information Technology Student & Web Developer</p>
+                    <p class="text-lg text-gray-400">
+                        Enthusiastic and highly motivated IT student with a strong background in programming, web development, and database management. Seeking a challenging entry-level position to grow professionally and further develop my technical skills.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/snehith1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github"></i></a>
+                        <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+                        <!-- Add other social links as needed -->
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-center items-center">
+                     <div class="w-80 h-80 bg-gradient-to-br from-emerald-900 to-cyan-900 rounded-full p-4 shadow-lg animate-pulse-glow">
+                        <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center animate-float overflow-hidden">
+                           <img src="/image.png" alt="Snehith Ambewar" class="h-full w-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
+                <p class="text-gray-400 mt-2">A collection of my technical abilities and tools I use.</p>
+            </div>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Languages</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Web Development</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">ReactJs</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100">Developer & Other Tools</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">VS Code</span>
+                        <span class="skill-badge">MS Word</span>
+                        <span class="skill-badge">MS Powerpoint</span>
+                        <span class="skill-badge">MS Excel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">My Projects</h2>
+                <p class="text-gray-400 mt-2">Here are some of the projects I've worked on.</p>
+            </div>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500">
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-emerald-400">HTML, CSS, SQL, PHP</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2 text-white">EV-SPOTTER: Online Web Application</h3>
+                        <p class="text-gray-400 mb-4">A user-friendly application for EV owners to find information on nearby available charging stations by entering their location's pincode.</p>
+                        <a href="#" class="font-semibold text-emerald-400 hover:text-emerald-300">View Project <i data-lucide="arrow-right" class="inline-block w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500">
+                    <div class="p-6">
+                        <span class="text-sm font-medium text-emerald-400">Streamlit, Python, Flask, Pandas, TensorFlow</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2 text-white">AI Based Vehicle Recommendation System</h3>
+                        <p class="text-gray-400 mb-4">An intelligent web app that suggests the best vehicle (Scooter, Bike, or Car) based on user age and salary using machine learning models.</p>
+                        <a href="https://snehith1308.streamlit.app/" class="font-semibold text-emerald-400 hover:text-emerald-300">View Project <i data-lucide="arrow-right" class="inline-block w-4 h-4"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section py-20 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Get In Touch</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-8">
+                I'm actively looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
+            </p>
+            <a href="tel:+919059418038" class="inline-block text-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-emerald-500/30 transform hover:scale-105">
+                Say Hello
+            </a>
+             <div class="flex justify-center space-x-6 mt-10">
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZPCDKCDPWRxhzMghqGwVWHlrxrRrqMmsZFPsWrPDVgmDLbsJRKjdRQmSvlttJCTNmKdfg" class="text-gray-400 hover:text-white"><i data-lucide="mail" class="w-7 h-7"></i></a>
+                <a href="https://github.com/snehith1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-7 h-7"></i></a>
+                <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-transparent">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Snehith Ambewar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
