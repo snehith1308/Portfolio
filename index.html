@@ -1,202 +1,237 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Snehith Ambewar - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .section { scroll-margin-top: 80px; }
-    /* Hover underline animation */
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #34d399;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-
-    /* Project card hover */
-    .project-card {
-      transition: all 0.4s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: #34d399;
-      box-shadow: 0 0 25px rgba(16,185,129,0.25);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snehith Ambewar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section {
+            scroll-margin-top: 80px; /* Adjust based on your fixed header height */
+        }
+        .skill-badge {
+            display: inline-block;
+            background-color: #1f2937; /* gray-800 */
+            color: #6ee7b7; /* emerald-300 */
+            border: 1px solid #34d399; /* emerald-400 */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background-color: #374151; /* gray-700 */
+            transform: translateY(-2px);
+        }
+        /* Animation for the floating logo */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        /* Animation for the glowing pulse effect */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 4s infinite;
+        }
+    </style>
 </head>
-<body class="bg-gray-950 text-gray-300">
+<body class="bg-gray-900 text-gray-300">
 
-  <!-- HEADER -->
-  <header class="bg-gray-900/70 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center space-x-2">
-        <img src="/Screenshot 2025-07-18 160839.png" alt="Logo" class="h-9 w-auto rounded-lg shadow-lg" onerror="this.src='https://placehold.co/100x40/111827/ffffff?text=Logo'"/>
-        <span class="font-bold text-emerald-400 text-lg">Snehith</span>
-      </a>
-      <nav class="hidden md:flex space-x-8 items-center font-medium">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="https://drive.google.com/file/d/19U2izG-Yug8k81A62dzbTWdV-90sYY89/view?usp=sharing" target="_blank" class="nav-link">Resume</a>
-        <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg shadow-lg">Contact</a>
-      </nav>
-      <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 backdrop-blur-md">
-      <a href="#about" class="block py-3 px-6 hover:bg-gray-800">About</a>
-      <a href="#skills" class="block py-3 px-6 hover:bg-gray-800">Skills</a>
-      <a href="#projects" class="block py-3 px-6 hover:bg-gray-800">Projects</a>
-      <a href="https://drive.google.com/file/d/19U2izG-Yug8k81A62dzbTWdV-90sYY89/view?usp=sharing" target="_blank" class="block py-3 px-6 hover:bg-gray-800">Resume</a>
-      <a href="#contact" class="block py-3 px-6 hover:bg-gray-800">Contact</a>
-    </div>
-  </header>
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg shadow-black/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="block">
+                <img src="/Screenshot 2025-07-18 160839.png" alt="S Logo" class="h-8 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/111827/ffffff?text=Logo';">
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                <a href="https://drive.google.com/file/d/19U2izG-Yug8k81A62dzbTWdV-90sYY89/view?usp=sharing" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-300">Resume</a>
+                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">About</a>
+            <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="https://drive.google.com/file/d/1IwhkjwvvCpQHbaYfFLcsiXqE_ebF2Zmv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Resume</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
 
-  <!-- HERO / ABOUT -->
-  <section id="about" class="section min-h-screen flex items-center pt-24 md:pt-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <!-- Profile Image -->
-      <div class="flex justify-center md:order-2">
-        <div class="w-72 h-72 md:w-96 md:h-96 bg-gradient-to-br from-emerald-700/40 to-cyan-700/30 rounded-full flex items-center justify-center shadow-xl border border-emerald-500/20">
-          <img src="/image.png" alt="Profile" class="rounded-full object-cover w-full h-full" onerror="this.src='https://placehold.co/400x400/374151/ffffff?text=Profile+Image'"/>
-        </div>
-      </div>
-      <!-- Text -->
-      <div class="space-y-6 md:order-1 text-center md:text-left">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-emerald-400">Snehith Ambewar</h1>
-        <p class="text-xl font-semibold text-white">IT Student & Web Developer</p>
-        <p class="text-lg text-gray-400 leading-relaxed">
-          Enthusiastic and highly motivated IT student with a strong background in programming, web development, and database management. Seeking an entry-level role to grow professionally and further develop my skills.
-        </p>
-        <div class="flex space-x-5 justify-center md:justify-start">
-          <a href="https://github.com/snehith1308" target="_blank"><i data-lucide="github" class="w-7 h-7 text-gray-400 hover:text-white"></i></a>
-          <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank"><i data-lucide="linkedin" class="w-7 h-7 text-gray-400 hover:text-white"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main class="container mx-auto px-6">
 
-  <!-- SKILLS -->
-  <section id="skills" class="section py-24">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-white">Technical Skills</h2>
-      <p class="text-gray-400 mt-2">Tools & technologies I work with</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-400 mb-4">Languages</h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="skill-badge">Java</span>
-          <span class="skill-badge">Python</span>
-          <span class="skill-badge">C</span>
-          <span class="skill-badge">JavaScript</span>
-          <span class="skill-badge">SQL</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-400 mb-4">Web Development</h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="skill-badge">HTML</span>
-          <span class="skill-badge">CSS</span>
-          <span class="skill-badge">ReactJs</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-emerald-400 mb-4">Tools</h3>
-        <div class="flex flex-wrap gap-3">
-          <span class="skill-badge">VS Code</span>
-          <span class="skill-badge">Git/GitHub</span>
-          <span class="skill-badge">MS Word</span>
-          <span class="skill-badge">MS PowerPoint</span>
-          <span class="skill-badge">MS Excel</span>
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="about" class="section min-h-screen flex items-center pt-24 md:pt-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section py-24 bg-gray-900/30">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-white">Projects</h2>
-      <p class="text-gray-400 mt-2">A few highlights of my work</p>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-      <!-- Project 1 -->
-      <div class="project-card bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 flex flex-col">
-        <img src="Screenshot 2025-07-21 185331.png" class="w-full aspect-video object-cover"/>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-2xl font-bold text-white">EV-SPOTTER</h3>
-          <p class="text-gray-400 mt-2 mb-4 flex-grow">A web app for EV owners to find charging stations using location pincode.</p>
-          <div class="flex flex-wrap gap-2 mb-4 text-xs">
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">PHP</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">MySQL</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">HTML</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">CSS</span>
-          </div>
+                <div class="flex justify-center items-center md:order-2">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-emerald-900 to-cyan-900 rounded-full p-4 shadow-lg animate-pulse-glow">
+                        <div class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center animate-float overflow-hidden">
+                           <img src="/image.png" alt="Snehith Ambewar" class="h-full w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x400/374151/ffffff?text=Profile+Image';">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-5 text-center md:text-left md:order-1">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight text-emerald-400">SNEHITH AMBEWAR</h1>
+                    <p class="text-xl font-semibold text-white">Information Technology Student & Web Developer</p>
+                    <p class="text-lg text-gray-400">
+                        Enthusiastic and highly motivated IT student with a strong background in programming, web development, and database management. Seeking a challenging entry-level position to grow professionally and further develop my technical skills.
+                    </p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="https://github.com/snehith1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="github" color="orange"></i></a>
+                        <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" color="orange"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="section py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
+                <p class="text-gray-400 mt-2">A collection of my technical abilities and tools I use.</p>
+            </div>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Languages</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Web Development</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">CSS</span>
+                        <span class="skill-badge">ReactJs</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-100 text-center">Developer & Other Tools</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <span class="skill-badge">VS Code</span>
+                        <span class="skill-badge">Git and GitHub</span>
+                        <span class="skill-badge">MS Word</span>
+                        <span class="skill-badge">MS Powerpoint</span>
+                        <span class="skill-badge">MS Excel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">My Projects</h2>
+                <p class="text-gray-400 mt-2">Here are some of the projects I've worked on.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500 flex flex-col">
+    <img src="Screenshot 2025-07-21 185331.png" alt="EV-Spotter Project Screenshot" class="w-full aspect-video object-cover">
+    <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-xl font-bold text-white">EV-SPOTTER: Online Web Application</h3>
+        <p class="text-gray-400 mt-2 mb-4 flex-grow">A user-friendly application for EV owners to find information on nearby available charging stations by entering their location's pincode.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">PHP</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">MySQL</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">HTML</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">CSS</span>
         </div>
-      </div>
-      <!-- Project 2 -->
-      <div class="project-card bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 flex flex-col">
-        <img src="brave_screenshot_snehith1308.streamlit.app.png" class="w-full aspect-video object-cover"/>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-2xl font-bold text-white">AI Vehicle Recommendation</h3>
-          <p class="text-gray-400 mt-2 mb-4 flex-grow">ML-powered app that suggests best vehicles (bike, scooter, car) based on user profile.</p>
-          <div class="flex flex-wrap gap-2 mb-4 text-xs">
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Streamlit</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Python</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Flask</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Pandas</span>
-            <span class="bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">TensorFlow</span>
-          </div>
-          <div class="mt-auto flex items-center space-x-5">
-            <a href="https://snehith1308.streamlit.app/" target="_blank" class="text-emerald-400 font-semibold hover:underline flex items-center">Live Demo <i data-lucide="external-link" class="w-4 h-4 ml-1"></i></a>
-            <a href="https://github.com/snehith1308/AI-Based-Vehicle-Recommendation-System" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github"></i></a>
-          </div>
+    </div>
+</div>
+
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-emerald-500 flex flex-col">
+    <img src="brave_screenshot_snehith1308.streamlit.app.png" alt="AI Vehicle Recommendation Project Screenshot" class="w-full aspect-video object-full" height="100%" width="100%">
+    <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-xl font-bold text-white">AI Based Vehicle Recommendation System</h3>
+        <p class="text-gray-400 mt-2 mb-4 flex-grow">An intelligent web app that suggests the best vehicle (Scooter, Bike, or Car) based on user age and salary using machine learning models.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Streamlit</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Python</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Flask</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">Pandas</span>
+            <span class="text-xs font-semibold bg-gray-700 text-emerald-300 py-1 px-2 rounded-full">TensorFlow</span>
         </div>
-      </div>
+        <div class="mt-auto flex items-center space-x-4">
+            <a href="https://snehith1308.streamlit.app/" target="_blank" rel="noopener noreferrer" class="font-semibold text-emerald-400 hover:text-emerald-300 inline-flex items-center">
+                Live Demo <i data-lucide="external-link" class="inline-block w-4 h-4 ml-1"></i>
+            </a>
+            <a href="https://github.com/snehith1308/AI-Based-Vehicle-Recommendation-System" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white">
+                <i data-lucide="github"></i>
+            </a>
+        </div>
     </div>
-  </section>
+</div>
+                
+            </div>
+        </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section py-24 text-center">
-    <h2 class="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
-    <p class="text-gray-400 max-w-xl mx-auto mb-10">
-      I'm open to new opportunities. Whether you have a question, idea, or just want to connect — drop a message!
-    </p>
-    <a href="tel:+919059418038" class="inline-block text-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30 transform hover:scale-105">
-      Say Hello
-    </a>
-    <div class="flex justify-center space-x-6 mt-10">
-      <a href="mailto:snehithambewar1308@gmail.com"><i data-lucide="mail" class="w-7 h-7 text-gray-400 hover:text-white"></i></a>
-      <a href="https://github.com/snehith1308" target="_blank"><i data-lucide="github" class="w-7 h-7 text-gray-400 hover:text-white"></i></a>
-      <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank"><i data-lucide="linkedin" class="w-7 h-7 text-gray-400 hover:text-white"></i></a>
-    </div>
-  </section>
+        <section id="contact" class="section py-20 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Get In Touch</h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-8">
+                I'm actively looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
+            </p>
+            <a href="tel:+919059418038" class="inline-block text-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-emerald-500/30 transform hover:scale-105">
+                Say Hello
+            </a>
+             <div class="flex justify-center space-x-6 mt-10">
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZPCDKCDPWRxhzMghqGwVWHlrxrRrqMmsZFPsWrPDVgmDLbsJRKjdRQmSvlttJCTNmKdfg" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="mail" class="w-7 h-7" color="orange"></i></a>
+                <a href="https://github.com/snehith1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-7 h-7" color="orange"></i></a>
+                <a href="https://www.linkedin.com/in/snehithambewar1308" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-7 h-7" color="orange"></i></a>
+             </div>
+        </section>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-800 py-6 text-center text-gray-500">
-    <p>&copy; 2025 Snehith Ambewar. Built with ❤️ and TailwindCSS.</p>
-  </footer>
+    </main>
 
-  <script>
-    lucide.createIcons();
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-  </script>
+    <footer class="bg-transparent">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Snehith Ambewar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Add a small delay to allow navigation to start before hiding menu
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html>
